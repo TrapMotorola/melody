@@ -1,0 +1,325 @@
+$main-color: #3596F5;
+$second-color: #635854;
+
+@font-face {
+    font-family: "Bebas Neue";
+    src: local("BebasNeueRegular"), url("../fonts/BebasNeueRegular.woff2") format("woff2"),
+      url("/./fonts/BebasNeueRegular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+  
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    cursor: default;
+}
+
+a {
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1310px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    background-color: $second-color;
+    color: #ffffff;
+    border-bottom: 4px solid #3596F5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    img {
+        display: block;
+    }
+}
+
+.nav {
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 0 24px;
+    }
+
+    &__link {
+        display: block;
+        padding: 9px 16px;
+        transition: background-color .2s ease-in-out;
+        text-decoration: none;
+        &:hover {
+            background-color: $main-color;
+        }
+    }
+}
+
+.navbar-contacts {
+    text-align: right;
+}
+
+.navbar-text {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.navbar-phone {
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+// Main sector
+
+.main {
+    display: flex;
+    padding-top: 54px;
+}
+
+.home-image {
+    path {
+        opacity: 0;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
+        &.current-floor {
+            opacity: 1;
+        }
+    }
+}
+
+.main-info {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.main-title {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-weight: normal;
+    font-size: 37px;
+    color: $second-color;
+    margin: 0;
+}
+.counter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    color: $second-color;
+}
+
+.floor-counter {
+    font-weight: normal;
+    font-size: 110px;
+    margin: 15px 0;
+}
+
+.counter-button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.counter-arrow-down {
+    transform: rotateX(180deg);
+}
+
+.button-primery {
+    background-color: $main-color;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    padding: 16px 36px;
+    cursor: pointer;
+}
+
+// Modal
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .2s;
+}
+
+.is-open {
+    opacity: 1;
+    transform: scale(1);
+    .modal-dialog {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-dialog {
+    max-width: 1000px;
+    min-height: 565px;
+    background-color: #fff;
+    flex-grow: 1;
+    display: flex;
+    position: relative; 
+    transform: translateY(-10%);
+    transition: transform .2s, opacity .2s;
+    transition-delay: .2s;
+    opacity: 0;
+}
+
+.modal-image {
+    background: #ebebeb;
+    width: 60%;
+    text-align: center;
+    padding: 50px;
+}
+
+.flats {
+    path {
+        opacity: 0;
+        cursor: pointer;
+        &.current-flat,
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 26px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.modal-info {
+    padding: 50px 40px;
+    width: 40%;
+}
+
+.flat-list {
+    margin-top: 50px;
+}
+
+.flat-item {
+    margin-bottom: 10px;
+}
+
+.flat-link {
+    color: #635854;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    &.current-flat,
+    &:hover {
+        color: #3596F5;
+        text-decoration: underline;
+    }
+}
+
+.modal-alert {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 50px;
+    color: #635854;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 38px;
+    right: 27px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+}
+
+// Footer section
+
+.footer {
+    background-color: #D7D7D7;
+    border-top: 4px solid #3596F5;
+    margin-top: 100px;
+    padding: 50px 0;
+}
+
+.footer-navbar {
+    display: flex;
+    align-items: center;
+    column-gap: 37px;
+    color: #635854;
+}
+
+.footer-nav {
+    margin-left: auto;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+.social-list {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.footer-navbar-text {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
+}
+.footer-navbar-phone {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+}
